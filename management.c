@@ -7,6 +7,19 @@ struct Cars {
     char COLOR[20];
    
 };
+
+struct SERVICES {
+            char SERVICE_DATE[20];
+            char SERVICE_TYPE[40];
+            float SERVICE_PAYMENT;
+        };
+
+enum SEAT_COLOR { BEIGE = 1, BLACK, BROWN };
+        struct CUSTOMIZATIONS {
+            char CUSTOMIZATION_TYPE [30];
+             enum SEAT_COLOR SEAT_COLOR;
+        }; 
+
 int main() {
     struct Cars car1, car2, car3;
      int AVALIABILITY;
@@ -49,7 +62,44 @@ int main() {
         else {
             printf("SERVICE PAYMENT COMPENSATED AS PER THE COMPANY \n"); 
         }
+    
+ printf("\n SERVICE DETAILS OF THE CAR \n");
+        struct SERVICES service1;
+        printf("SERVICE_DATE :");
+        scanf("%s", service1.SERVICE_DATE);
+        printf("SERVICE_TYPE :");
+        scanf("%s", service1.SERVICE_TYPE);
+        printf("SERVICE_PAYMENT :");
+        scanf("%f", service1.SERVICE_PAYMENT);
+
+        
+        printf("\n CUSTOMIZATION DETAILS OF THE CAR \n");
+        struct CUSTOMIZATIONS customization1; 
+
+        printf("CUSTOMIZATION_TYPE (1 FOR INTERIOR / 0 FOR EXTERIOR) :");
+        scanf("%d", &CUSTOMIZATION_TYPE);
+       
+        if (CUSTOMIZATION_TYPE == 1) {
+            printf("CUSTOMIZATION_TYPE : INTERIOR\n");
+            printf("SELECT SEAT_COLOR (1 FOR BEIGE / 2 FOR BLACK / 3 FOR BROWN) :");
+            scanf(" %d", &customization1.SEAT_COLOR);
+            switch(customization1.SEAT_COLOR) {
+                case 1:
+                    printf("SEAT_COLOR : BEIGE\n");
+                    break;
+                case 2:
+                    printf("SEAT_COLOR : BLACK\n");
+                    break;
+                case 3:
+                    printf("SEAT_COLOR : BROWN\n");
+                    break;
+                default:
+                    printf("INVALID CHOICE FOR SEAT_COLOR\n");
+            }
+            
+        }
 
 
  return 0;
+
 }
